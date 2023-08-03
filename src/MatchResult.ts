@@ -1,4 +1,4 @@
-export enum MatchesResult {
+export enum MatchResult {
   HomeWin = 'H',
   AwayWin = 'A',
   Draw = 'D'
