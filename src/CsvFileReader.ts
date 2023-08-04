@@ -5,7 +5,7 @@ import { MatchResults } from './MatchResults';
 type MatchData = [Date, string, string, number, number, MatchResults, string];
 
 export class CsvFileReader {
-  data: string[] = [];
+  data: string[][] = []//MatchData[] = [];
 
   constructor(public filename: string){}
 
@@ -14,6 +14,12 @@ export class CsvFileReader {
     .readFileSync(this.filename, {
       encoding: 'utf-8'
     })
-    .split('\n');
+    .split('\n')
+    .map((row: string): string[] => {
+      return row.split(',');
+    })
+    /* .map((row: string): MatchData => {
+      return []
+    }) */
   }
 }
