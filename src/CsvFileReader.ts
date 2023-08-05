@@ -1,5 +1,6 @@
 import fs from 'fs';
 import { MatchResults } from './MatchResults';
+import { dateStringToDate } from './utils';
 
 
 type MatchData = [Date, string, string, number, number, MatchResults, string];
