@@ -1,9 +1,11 @@
 import fs from 'fs';
 
-export class CsvFileReader {
+export abstract class CsvFileReader {
   data:string[][] = [];
 
   constructor(public filename: string) {}
+
+  abstract strArrToTuple()
 
   read() {
     this.data = fs
@@ -12,5 +14,6 @@ export class CsvFileReader {
     })
     .split('\n')
     .map((row: string) => row.split(','))
+    .map((row: string[]) => row.strArrToTuple)
   }
 }
